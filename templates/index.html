@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .boxshadow{
+            border: 1px solid;
+            padding: 10px;
+            box-shadow: 2px 2px 2px 2px #888888;
+            border-radius: 5px;
+        }
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .required {
+  color: red;
+}
+    </style>
+
+</head>
+<body>
+    <section>
+        <div class="boxshadow">
+            <form>
+              <!---- <label>Hub span class="required">*</span></label>
+                <br><
+                <input type="text" placeholder="BCCBP001" required> -->
+
+                <label >Hub <span class="required">*</span></label>
+                 <input type=text  placeholder="BCCBP001" style="width: 30%;"/>
+                &nbsp;
+                <label >GRN </label>
+                <input type=text/ style="width: 30%;">
+
+                <br><br>
+                <label >Supplier <span class="required">*</span></label>
+                <br>
+                <input type="number" placeholder="37367" required style="width: 50%;">
+
+                <br><br>
+                <label>Supplier Name</label>
+                <br>
+                <input type="text" placeholder="Sunil N bitter" style="width: 50%;">
+            </form>
+        </div>
+    </section>
+<br><br>
+
+        <div class="boxshadow">
+            <h3 style="font-weight: bold;">SKU Summary</h3>
+
+            <h5>SKU Table</h5>
+            <table style="width: 100%;">
+                <tr>
+                    <th>No.</th>
+                    <th>SKU</th>
+                    <th>SKU Description</th>
+                    <th>Standard Crate Quan...</th>
+                    <th>Procured Quantity</th>
+                </tr>
+                {% for sku in sku_summary %}
+                <tr style="text-align: center;">
+                    <td>{{sku["idx"]}}</td>
+                    <td>{{sku["sku"]}}</td>
+                    <td>{{sku["sku_description"]}}</td>
+                    <td>{{sku["standard_crate_quantity"]}}</td>
+                    <td>{{sku["quantity"]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <br><br>
+        <div class="boxshadow">
+            <h3 style="font-weight: bold;">Crate List &nbsp;  ^</h3>
+
+            <h5>SKU Table</h5>
+            <table style="width: 100%;">
+                <tr>
+                    <th>No.</th>
+                    <th>Crate</th>
+                    <th>SKU</th>
+                    <th>Packed Quantity</th>
+                    <th>Crate Weight</th>
+                    <th>Is Final Crate</th>
+                </tr>
+                {% for C_data in crate_data %}
+                <tr style="text-align: center;">
+                    <td>{{C_data["idx"]}}</td>
+                    <td>{{C_data["crate"]}}</td>
+                    <td>{{C_data["sku"]}}</td>
+                    <td>{{C_data["packed_quantity"]}}</td>
+                    <td>{{C_data["crate_weight"]}}</td>
+                    <td>{{C_data["is_final_crate"]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+</body>
+</html>
